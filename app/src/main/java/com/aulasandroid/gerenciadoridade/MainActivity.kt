@@ -96,6 +96,7 @@ fun GerenciadorIdadesMainScreen(modifier: Modifier = Modifier) {
             Button(
                 modifier = Modifier.size(50.dp),
                 onClick = {
+                    if (idade < 0)
                     idade++
                 },
                 shape = RoundedCornerShape(10.dp)
@@ -109,6 +110,7 @@ fun GerenciadorIdadesMainScreen(modifier: Modifier = Modifier) {
             Button(
                 modifier = Modifier.size(50.dp),
                 onClick = {
+                    if(idade > 180)
                     idade--
                 },
                 shape = RoundedCornerShape(10.dp)
@@ -126,38 +128,44 @@ fun GerenciadorIdadesMainScreen(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.spacedBy(32.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            when {
-                idade > 180 -> {
-                    idade--
-                    Text(
-                        text = "IDADE INVÁLIDA",
-                        color = Color.Blue,
-                        fontSize = 24.sp
-                    )
-                }
-                idade in 18 .. 180 -> {
-                    Text(
-                        text = "Você é MAIOR de idade",
-                        color = Color.Blue,
-                        fontSize = 24.sp
-                    )
-                }
-                idade in 1..18 -> {
-                    Text(
-                        text = "Você é MENOR de idade",
-                        color = Color.Blue,
-                        fontSize = 24.sp
-                    )
-                }
-                idade <= 0-> {
-                    idade++
-                    Text(
-                        text = "IDADE INVÁLIDA",
-                        color = Color.Blue,
-                        fontSize = 24.sp
-                    )
-                }
-            }
+//            when {
+//                idade > 180 -> {
+//                    idade--
+//                    Text(
+//                        text = "IDADE INVÁLIDA",
+//                        color = Color.Blue,
+//                        fontSize = 24.sp
+//                    )
+//                }
+//                idade in 18 .. 180 -> {
+//                    Text(
+//                        text = "Você é MAIOR de idade",
+//                        color = Color.Blue,
+//                        fontSize = 24.sp
+//                    )
+//                }
+//                idade in 1..18 -> {
+//                    Text(
+//                        text = "Você é MENOR de idade",
+//                        color = Color.Blue,
+//                        fontSize = 24.sp
+//                    )
+//                }
+//                idade <= 0 -> {
+//                    idade++
+//                    Text(
+//                        text = "IDADE INVÁLIDA",
+//                        color = Color.Blue,
+//                        fontSize = 24.sp
+//                    )
+//                }
+//          }
+            Text(
+                text = "Você é ${if(idade > 18) "MAIOR" else "MENOR"} de idade",
+                color = Color.Blue,
+                fontSize =  24.sp
+            )
+
         }
 
     }
