@@ -96,8 +96,9 @@ fun GerenciadorIdadesMainScreen(modifier: Modifier = Modifier) {
             Button(
                 modifier = Modifier.size(50.dp),
                 onClick = {
-                    if (idade < 0)
                     idade++
+                    if (idade > 180)
+                        idade--
                 },
                 shape = RoundedCornerShape(10.dp)
             ) {
@@ -110,8 +111,9 @@ fun GerenciadorIdadesMainScreen(modifier: Modifier = Modifier) {
             Button(
                 modifier = Modifier.size(50.dp),
                 onClick = {
-                    if(idade > 180)
                     idade--
+                    if(idade < 0)
+                      idade++
                 },
                 shape = RoundedCornerShape(10.dp)
             ) {
